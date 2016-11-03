@@ -1,0 +1,44 @@
+// rcptproxy.idl : IDL source for rcptproxy
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (rcptproxy.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+import "seo.idl";
+import "smtpevent.idl";
+import "mailmsg.idl";
+
+[
+	object,
+	uuid(25278C36-181D-4B6A-865D-99AAF7954B2C),
+	dual,
+	nonextensible,
+	helpstring("ISink Interface"),
+	pointer_default(unique)
+]
+interface ISink : IDispatch{
+	[id(1), helpstring("Register sink in the metabase")] HRESULT Register([in] VARIANT instance, [in] BSTR binding_guid, [in] VARIANT_BOOL enabled, [in] VARIANT priority, [in] BSTR server_address);
+	[id(2), helpstring("Unregister sink from the metabase")] HRESULT Unregister([in] VARIANT instance, [in] BSTR binding_guid);
+};
+[
+	uuid(347F0808-6DAE-4BF3-8F93-BB0E78B616AB),
+	version(1.0),
+	helpstring("rcptproxy 1.0 Type Library")
+]
+library rcptproxyLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(13DD106B-BC69-4389-82E1-7C37A883C414),
+		helpstring("Sink Class")
+	]
+	coclass Sink
+	{
+		[default] interface ISink;
+		interface IEventIsCacheable;
+		interface IPersistPropertyBag;
+		interface ISmtpInCommandSink;
+	};
+};

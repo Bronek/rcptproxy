@@ -1,0 +1,27 @@
+HKCR
+{
+	RcptProxy.Sink.1 = s 'RcptProxy Sink Class'
+	{
+		CLSID = s '{13DD106B-BC69-4389-82E1-7C37A883C414}'
+	}
+	RcptProxy.Sink = s 'RcptProxy Sink Class'
+	{
+		CLSID = s '{13DD106B-BC69-4389-82E1-7C37A883C414}'
+		CurVer = s 'RcptProxy.Sink.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {13DD106B-BC69-4389-82E1-7C37A883C414} = s 'RcptProxy Sink Class'
+		{
+			ProgID = s 'RcptProxy.Sink.1'
+			VersionIndependentProgID = s 'RcptProxy.Sink'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Free'
+			}
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{347F0808-6DAE-4BF3-8F93-BB0E78B616AB}'
+		}
+	}
+}

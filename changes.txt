@@ -1,0 +1,37 @@
+1.2.0.154 (2005-04-24)
+  preliminary support for custom SMTP error message, proposed 
+  by Michael Geiger 
+
+
+1.1.0.152 (2005-03-17)
+  removed bug: RcptSink ignored response from internal SMTP server
+  and passed recipient without verification
+  removed bug: timeout when disconnecting from internal server
+
+
+1.1.0.132 (2005-03-12)
+  some code cleanup
+  removed minor bugs
+  added exclusion list, proposed by Michael Geiger 
+  added forced configuration refresh
+
+
+1.0.84 (2004-11-13)
+  code cleanup
+  (moved synchronization entities to sync namespace, Windows API
+  to win32, additional abstract class sync::scoped_lock, added
+  synchronization interface to smtp, little fixes in str::chars)
+
+  SMTP connection to internal server could have been disconnected 
+  between MAIL FROM and RCPT TO, if max. connection timeout occured
+  during MAIL FROM (unusual, but possible situation). This has been 
+  fixed.
+
+
+1.0.76 (2004-11-01)
+  fixed max. connection time
+
+
+1.0.75 (2004-10-31)
+  first public release
+  
